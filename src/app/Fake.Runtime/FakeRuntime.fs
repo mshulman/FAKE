@@ -143,7 +143,7 @@ let paketCachingProvider printDetails cacheDir (paketDependencies:Paket.Dependen
         |> RuntimeGraph.mergeSeq
 
     // Retrieve assemblies
-    if printDetails then Trace.log <| sprintf "Retrieving the assemblies (rid: '%O')..." rid
+    if printDetails then Trace.log <| sprintf "Retrieving the assemblies (rid: '%O', runtimes: '%d')..." rid graph.Runtimes.Count
     orderedGroup
     |> Seq.filter (fun p ->
       if p.Name.ToString() = "Microsoft.FSharp.Core.netcore" then
